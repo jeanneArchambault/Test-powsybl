@@ -26,7 +26,7 @@ import java.util.Properties;
 
 public class ExcelWriter {
 
-    private int nbRun = 1;
+    private int nbRun = 10;
     private List<String> cases;
     private Path basePath;
     private Path outputPath;
