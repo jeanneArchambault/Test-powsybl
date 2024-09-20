@@ -140,8 +140,8 @@ public class ExcelWriter {
 //                    properties
 //            );
 
-            String situ = "C:\\Users\\jarchambault\\Desktop\\IGM\\";
-            Network network = Network.read(situ + caseName);
+//            String situ = "C:\\Users\\jarchambault\\Desktop\\IGM\\";
+            Network network = Network.read(basePath + "\\" +caseName);
 
             network.write("XIIDM", new Properties(), basePath.resolve(caseName + "_output"));
 
@@ -298,11 +298,15 @@ public class ExcelWriter {
     }
 
     public static void main(String[] args) throws IOException {
-        List<String> cases = List.of("case57.xiidm"); // Case names
+        List<String> cases = List.of("20260613T1330Z_1D_AT_.xiidm",
+                                    "20260613T1330Z_1D_CORESO-EU_.xiidm",
+                                    "20260613T1330Z_1D_ES_.xiidm",
+                                    "20260613T1330Z_1D_FR_.xiidm",
+                                    "20260613T1330Z_1D_PT_.xiidm"); // Case names
 //        List<String> cases = List.of("case14","case57","case300","case1888rte","case1951rte","case2848rte","case2868rte","case6468rte","case6470rte","case6495rte","case6515rte"); // Case names "case14","case57","case300","case1888rte","case1951rte","case2848rte","case2868rte","case6468rte","case6470rte","case6495rte","case6515rte"
 //        List<String> cases = List.of("case6470rte"); // Case names "case14","case57","case300","case1888rte","case1951rte","case2848rte","case2868rte","case6468rte","case6470rte","case6495rte","case6515rte"
-        Path basePath = Path.of("C:", "Users", "jarchambault", "Downloads");
-        Path outputPath = Path.of("C:", "Users", "jarchambault", "Downloads", "results.xlsx");
+        Path basePath = Path.of("C:", "Users", "jarchambault", "Desktop", "IGM");
+        Path outputPath = Path.of("C:", "Users", "jarchambault", "Desktop", "IGM", "results.xlsx");
 
         ExcelWriter runner = new ExcelWriter(cases, basePath, outputPath);
         runner.runCases();
